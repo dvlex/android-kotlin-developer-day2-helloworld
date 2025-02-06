@@ -1,9 +1,20 @@
 package com.example.android_kotlin_developer_day2_hello_world
 
 fun main() {
-    var age = 5
-    age += 1
-    var name: String = "John"
-    val pi: Double = 3.14159 // immutable variable
-    println("Hello, $name! You are $age years old. Also, pi is $pi.")
+    var botChoice: Int
+    var userChoice = 1
+
+    while (userChoice in 1..3) {
+        botChoice = (1..3).random()
+        println("Enter your choice: 1 for Rock, 2 for Paper, 3 for Scissors")
+        userChoice = readLine()!!.toInt()
+
+        if (userChoice == botChoice) {
+            println("It's a draw!")
+        } else if (userChoice == 1 && botChoice == 3 || userChoice == 2 && botChoice == 1 || userChoice == 3 && botChoice == 2) {
+            println("You win!")
+        } else {
+            println("You lose!")
+        }
+    }
 }
